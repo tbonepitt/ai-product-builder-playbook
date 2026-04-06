@@ -1,10 +1,8 @@
-import Anthropic from '@anthropic-ai/sdk'
-
-const client = new Anthropic()
+const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
 const SYSTEM = `You are a workflow analysis assistant for an AI product management course.
 
-Analyze the workflow steps provided and return ONLY a valid JSON object — no markdown, no code fences, no explanation.
+Analyze the workflow steps provided and return a valid JSON object.
 
 The JSON must have this exact structure:
 {
@@ -42,15 +40,32 @@ export default async function handler(req, res) {
   }
 
   try {
-    const message = await client.messages.create({
-      model: 'claude-haiku-4-5',
-      max_tokens: 1024,
-      system: SYSTEM,
-      messages: [{ role: 'user', content: `Analyze this workflow:\n\n${workflow.trim()}` }]
+    const response = await fetch(GROQ_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        response_format: { type: 'json_object' },
+        temperature: 0.3,
+        max_tokens: 1024,
+        messages: [
+          { role: 'system', content: SYSTEM },
+          { role: 'user', content: `Analyze this workflow:\n\n${workflow.trim()}` }
+        ]
+      })
     })
 
-    const text = message.content[0].text.trim()
-    const data = JSON.parse(text)
+    if (!response.ok) {
+      const err = await response.text()
+      console.error('Groq error:', err)
+      throw new Error(`Groq API returned ${response.status}`)
+    }
+
+    const groqData = await response.json()
+    const data = JSON.parse(groqData.choices[0].message.content)
     return res.status(200).json(data)
   } catch (e) {
     console.error('Workflow analysis error:', e)
