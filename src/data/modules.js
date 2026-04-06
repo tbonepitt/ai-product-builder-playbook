@@ -2,7 +2,7 @@ export const MODULES = [
 {
   id: 0, icon: "⚡", name: "The Pivot",
   tagline: "Why being a good PM is no longer enough",
-  color: "#7c3aed", colorLight: "#a78bfa", duration: "8 min",
+  color: "#7c3aed", colorLight: "#a78bfa", duration: "3 min",
   cards: [
     { type: "hook", icon: "📉", big: "Your skills", rest: "have an expiration date.", note: "In 2020, strong stakeholder management and sharp PRDs got you hired. In 2026, companies are restructuring entire PM functions around people who can build with AI directly. The bar moved. Most PMs haven't." },
     { type: "concept", icon: "🔍", tag: "What actually changed", head: "This isn't about learning new tools. It's about a new bar.", body: "Apollo's CPO called it directly: they're hiring 'Product Builders' — not product managers.\n\n<b>The difference:</b> A PM describes the product. A Product Builder makes a working version first, then describes it.\n\nHiring managers at AI-native companies now ask: 'Can you prototype this in a day?' If you've never done it, there's a candidate behind you who has.\n\nBanks, fintechs, and SaaS companies are running internal 'AI-pilling' programs. The PM who can't build is being managed by the engineer who can." },
@@ -25,7 +25,7 @@ export const MODULES = [
 {
   id: 1, icon: "🔄", name: "Workflow Thinking",
   tagline: "The feature that adds AI vs. the workflow that replaces work",
-  color: "#0284c7", colorLight: "#38bdf8", duration: "10 min",
+  color: "#0284c7", colorLight: "#38bdf8", duration: "4 min",
   cards: [
     { type: "hook", icon: "📉", big: "Adding AI", rest: "is not the same as automating work.", note: "A fintech PM added AI autocomplete to their expense description field. Adoption hit 80%. Then they measured actual time savings: zero. Users still corrected every suggestion. The feature felt like AI. It didn't change any work." },
     { type: "concept", icon: "🗺️", tag: "The real question", head: "Feature thinking asks 'what to add.' Workflow thinking asks 'what to remove.'", body: "Here's the distinction that matters:\n\n<b>Feature thinking:</b> 'We should add AI to our onboarding flow.'\n\n<b>Workflow thinking:</b> 'A new user currently reads a 12-page setup doc, manually configures 6 settings, emails support twice, and abandons 40% of the time at step 4. Which of those steps can AI permanently own?'\n\nThe first creates a button. The second redesigns the experience.\n\nEvery AI product that has actually changed how people work started with someone mapping the full workflow first — not starting from the AI feature." },
@@ -60,7 +60,7 @@ export const MODULES = [
 {
   id: 2, icon: "🧠", name: "AI System Design",
   tagline: "Architect the right stack — and know when to stop",
-  color: "#0891b2", colorLight: "#22d3ee", duration: "15 min",
+  color: "#0891b2", colorLight: "#22d3ee", duration: "7 min",
   cards: [
     { type: "hook", icon: "💸", big: "They built agents", rest: "when prompting would have worked.", note: "A team spent 3 months building a multi-agent RAG pipeline for their internal knowledge base. It cost $200K in engineering time. A competitor solved the same problem in 2 weeks with a single well-structured prompt and a markdown wiki. The architecture wasn't wrong. It was just too much." },
     { type: "concept", icon: "🪜", tag: "The capability ladder", head: "Always start at the bottom. Most teams start too high.", body: "The rule isn't 'use the best technology.' It's <b>exhaust each level before climbing.</b>\n\n<b>Level 1 — Prompting:</b> Plain language. Zero infra. Iterate in minutes. Try this first, always.\n<b>Level 2 — RAG:</b> Your docs + retrieval + LLM. Use when the model needs your specific knowledge.\n<b>Level 3 — Fine-tuning:</b> Train on your examples. Use for consistent style/format — almost never for knowledge.\n<b>Level 4 — Agents:</b> LLMs that loop, use tools, take actions. Powerful and fragile.\n\n<b>The cost of jumping levels:</b> Each level adds infrastructure, latency, debugging complexity, and new failure modes. A team that skips to Level 4 has bought all that complexity without proving the simpler version wouldn't have worked." },
@@ -99,7 +99,7 @@ export const MODULES = [
 {
   id: 3, icon: "⚡", name: "Rapid Prototyping",
   tagline: "Build it before you describe it",
-  color: "#d97706", colorLight: "#fbbf24", duration: "11 min",
+  color: "#d97706", colorLight: "#fbbf24", duration: "4 min",
   cards: [
     { type: "hook", icon: "🕐", big: "6 weeks.", rest: "For a prototype they could have built in a day.", note: "A team spent 6 weeks building a custom RAG pipeline for their knowledge base. They tested it with real users. The core feedback: the search interface itself was confusing — not the AI quality. They had built the most complex part of the system before testing the most important assumption." },
     { type: "concept", icon: "🧪", tag: "Why prototypes beat docs", head: "A prototype answers the question the doc can't.", body: "A PRD can describe what the product does. A prototype reveals:\n\n<b>Whether the interaction actually feels right</b> — users often can't explain this in interviews, but they show it immediately when using something real.\n\n<b>What the second thing users ask for</b> — almost always different from what you predicted.\n\n<b>Whether AI quality is good enough for real tasks</b> — not theoretically good. Actually good.\n\n<b>Where it breaks in unexpected ways</b> — edge cases your spec never mentioned.\n\nEvery hour writing about the product instead of building it is an hour guessing about those four things." },
@@ -134,7 +134,7 @@ export const MODULES = [
 {
   id: 4, icon: "🎯", name: "Evaluation Systems",
   tagline: "How you know it works — before and after you ship",
-  color: "#dc2626", colorLight: "#f87171", duration: "12 min",
+  color: "#dc2626", colorLight: "#f87171", duration: "5 min",
   cards: [
     { type: "hook", icon: "📉", big: "The output looked great.", rest: "In production, it was a disaster.", note: "A team shipped AI that summarized insurance policy documents. Internal testing: excellent. Week 1 in production: users made coverage decisions based on summaries that omitted key exclusions. The AI wasn't hallucinating — it was summarizing. Nobody defined 'completeness' as a quality dimension before shipping." },
     { type: "concept", icon: "📊", tag: "Why it matters", head: "The demo-to-production gap is always bigger than you think", body: "Here's the pattern that repeats:\n\n• You test on 10–20 examples your team selected\n• The model performs well on all of them\n• You ship to real users\n• Users find inputs you never imagined: unusual phrasing, edge cases, different languages, copy-pasted garbage\n\n<b>The examples you test on are not representative. They never are.</b>\n\nEvaluation systems close this gap systematically — not by testing more examples manually, but by building infrastructure that catches regressions before they reach users." },
@@ -170,7 +170,7 @@ export const MODULES = [
 {
   id: 5, icon: "💰", name: "Cost + Latency",
   tagline: "Every AI feature is a P&L problem. Own the math.",
-  color: "#7c3aed", colorLight: "#a78bfa", duration: "10 min",
+  color: "#7c3aed", colorLight: "#a78bfa", duration: "4 min",
   cards: [
     { type: "hook", icon: "📊", big: "$2M/year.", rest: "For a feature nobody budgeted for.", note: "A team shipped a real-time AI writing assistant. Users loved it. Usage grew. Six months later, finance flagged it: $180K/month and climbing. Nobody had run the math at scale. The PM thought 'it costs pennies per call' and never multiplied. Pennies at 10 million calls is $100,000." },
     { type: "concept", icon: "🔢", tag: "The basic math", head: "How AI costs actually work — and how to run the numbers", body: "AI APIs charge by <b>token</b> — roughly 1 token per word.\n\n<b>Cost formula:</b>\n(Input tokens + Output tokens) ÷ 1,000,000 × Price per 1M tokens × Daily calls × 30\n\n<b>Example:</b>\n• 500-word prompt + 300-word response ≈ 1,000 tokens\n• Claude Sonnet: ~$3/million tokens → $0.003/call\n• 50,000 daily users × $0.003 × 30 days = <b>$4,500/month</b>\n\nSame feature on a frontier model at 10× the cost: <b>$45,000/month</b>.\n\nModel selection is a P&L decision. You own it." },
@@ -194,7 +194,7 @@ export const MODULES = [
 {
   id: 6, icon: "🤖", name: "Agentic AI",
   tagline: "When AI acts — not just responds",
-  color: "#0f766e", colorLight: "#2dd4bf", duration: "15 min",
+  color: "#0f766e", colorLight: "#2dd4bf", duration: "8 min",
   cards: [
     { type: "hook", icon: "📧", big: "847 emails.", rest: "You didn't send any of them.", note: "A team gave their AI agent access to their email system to 'help with outreach.' The agent interpreted 'follow up with warm leads' as: send a personalized email to every contact marked warm in the CRM. 847 emails in 4 minutes. Some were to the wrong people. Three went to competitors. The agent worked exactly as designed. Nobody thought through what 'email access' meant at scale." },
     { type: "concept", icon: "🔁", tag: "The loop", head: "What makes an agent an agent: the sense-plan-act loop", body: "A standard LLM call is stateless: you ask, it answers, it forgets.\n\nAn agent operates in a loop:\n\n<b>Sense:</b> Observe the current state — read a doc, check an API, look at a screen\n<b>Plan:</b> Decide what action to take next based on goal and current state\n<b>Act:</b> Execute a tool call — send message, write file, query database, click button\n<b>Repeat:</b> Feed the result back in, decide the next step\n\n<b>Why this is powerful:</b> Agents handle tasks requiring multiple steps and adapt based on results.\n<b>Why this is dangerous:</b> A mistake in the Plan step doesn't produce a bad answer — it triggers a bad action that may be irreversible." },
@@ -225,7 +225,7 @@ export const MODULES = [
 {
   id: 7, icon: "🏆", name: "End-to-End Ownership",
   tagline: "From zero to shipped — and you own all of it",
-  color: "#16a34a", colorLight: "#4ade80", duration: "10 min",
+  color: "#16a34a", colorLight: "#4ade80", duration: "4 min",
   cards: [
     { type: "hook", icon: "🛤️", big: "Nobody", rest: "is coming to hand you the keys.", note: "The engineers who got promoted to lead AI products didn't wait for a PM. They built something, validated it, shipped it, and called it a product. You can reverse this. But you have to start the loop yourself — with whatever you have, on personal devices, in free time." },
     { type: "concept", icon: "📅", tag: "The speed bar", head: "What 'ships fast' actually means for AI products", body: "There's a specific speed bar for Product Builders. Internalize it:\n\n<b>Hours:</b> Workflow mapped, AI spec written, prototype exists\n<b>Days:</b> Real user feedback from 5+ people, concept validated or killed, benchmark drafted\n<b>Weeks:</b> Production-ready with evals, guardrails, cost model, monitoring\n<b>Months:</b> Scaled and optimized — multi-model fallback, trajectory logging, cost tuning\n\nThe traditional PM is still writing requirements in week 3. The Product Builder has already killed two concepts and is building the third with real signal." },

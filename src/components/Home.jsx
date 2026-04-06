@@ -11,7 +11,7 @@ export default function Home({ completed, onSelect }) {
         <p className="hero-sub">Seven skills. Eight modules. Learn to build, not just describe.</p>
         <div className="hero-pills">
           <span className="pill">📚 8 modules</span>
-          <span className="pill">⏱ ~95 min total</span>
+          <span className="pill">⏱ ~40 min total</span>
           <span className="pill">🎯 Self-paced</span>
           <span className="pill">🔨 Hands-on exercises</span>
         </div>
