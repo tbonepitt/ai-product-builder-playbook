@@ -105,7 +105,7 @@ export default function CardView({ card, color, colorLight, onQuizAnswered }) {
       {card.tag && <div className="c-tag">{card.tag}</div>}
       <div className="c-head">{card.head}</div>
       <div className="c-body">{card.body}</div>
-      <WorkflowMapper color={color} colorLight={colorLight} steps={card.steps} />
+      <WorkflowMapper color={color} colorLight={colorLight} />
     </div>
   )
   if (card.type === "build") return (

@@ -7,7 +7,7 @@ const ANATOMY_COLORS = {
   Action: '#16a34a'
 }
 
-export default function WorkflowMapper({ color, colorLight, steps: actionSteps }) {
+export default function WorkflowMapper({ color, colorLight }) {
   const [workflow, setWorkflow] = useState('')
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -69,13 +69,7 @@ export default function WorkflowMapper({ color, colorLight, steps: actionSteps }
 
   return (
     <div className="wm-input-area">
-      <div className="wm-steps-guide">
-        {actionSteps.map((s, i) => (
-          <div key={i} className="wm-guide-step" data-n={`${i + 1}.`}>{s}</div>
-        ))}
-      </div>
-      <div className="wm-divider" />
-      <div className="wm-try-label">Try it — describe your workflow below</div>
+      <div className="wm-try-label">Write your workflow — one step per line</div>
       <textarea
         className="wm-textarea"
         placeholder={"Write each step on a new line:\n\nRep finishes a sales call\nOpens Salesforce, types notes from memory\nManager exports report every Monday\nReport sent to VP — rarely opened"}
