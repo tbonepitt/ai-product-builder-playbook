@@ -168,6 +168,37 @@ body {
 .btn-primary { color: #fff; border: none; font-size: 14px; font-weight: 700; padding: 12px 28px; border-radius: 100px; cursor: pointer; transition: all 0.18s; box-shadow: 0 3px 12px rgba(0,0,0,0.15); }
 .btn-primary:hover { transform: scale(1.02); }
 
+/* WorkflowMapper */
+.wm-steps-guide { margin-top: 14px; }
+.wm-guide-step { font-size: 13px; color: #14532d; padding: 5px 0 5px 22px; position: relative; line-height: 1.55; border-bottom: 1px solid rgba(187,247,208,0.5); }
+.wm-guide-step:last-child { border-bottom: none; }
+.wm-guide-step::before { content: attr(data-n); position: absolute; left: 0; font-weight: 800; color: #16a34a; }
+.wm-divider { height: 1px; background: #e8e3da; margin: 16px 0; }
+.wm-try-label { font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #6b7280; margin-bottom: 8px; }
+.wm-textarea { width: 100%; border: 1.5px solid #e5e1da; border-radius: 12px; padding: 12px 14px; font-size: 13px; font-family: inherit; color: #1a1a2e; background: #fafaf9; resize: vertical; outline: none; line-height: 1.6; box-sizing: border-box; }
+.wm-textarea:focus { border-color: #a78bfa; }
+.wm-error { font-size: 12px; color: #b91c1c; margin-top: 6px; }
+.wm-submit-btn { margin-top: 10px; width: 100%; color: #fff; border: none; font-size: 14px; font-weight: 800; padding: 13px 20px; border-radius: 100px; cursor: pointer; transition: all 0.18s; }
+.wm-submit-btn:disabled { cursor: default; }
+.wm-submit-btn:not(:disabled):hover { transform: scale(1.02); }
+
+.wm-result { margin-top: 14px; }
+.wm-section-label { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #6b7280; margin-bottom: 8px; }
+.wm-steps-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.wm-step { padding: 10px 12px; background: #f9f8f6; border: 1.5px solid #e8e3da; border-radius: 11px; }
+.wm-step.wm-ai { background: #f0f9ff; border-color: #bae6fd; }
+.wm-step-meta { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; flex-wrap: wrap; }
+.wm-anatomy { font-size: 10px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; padding: 2px 8px; border-radius: 100px; }
+.wm-ai-badge { font-size: 11px; font-weight: 700; color: #0369a1; background: #e0f2fe; padding: 2px 8px; border-radius: 100px; }
+.wm-step-text { font-size: 13px; font-weight: 600; color: #1a1a2e; margin-bottom: 3px; line-height: 1.4; }
+.wm-step-reason { font-size: 12px; color: #6b7280; line-height: 1.45; }
+.wm-output-block { margin-bottom: 12px; }
+.wm-output-text { font-size: 13px; color: #374151; line-height: 1.6; background: #f9f8f6; padding: 10px 12px; border-radius: 11px; border: 1px solid #e8e3da; }
+.wm-leverage-block { padding: 12px 14px; border-left: 3px solid; border-radius: 0 11px 11px 0; background: #fafaf9; margin-bottom: 14px; }
+.wm-leverage-text { font-size: 14px; font-weight: 700; color: #1a1a2e; line-height: 1.5; margin-top: 4px; }
+.wm-reset-btn { background: none; border: 1.5px solid #e5e1da; color: #6b7280; font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 100px; cursor: pointer; transition: all 0.15s; }
+.wm-reset-btn:hover { border-color: #a78bfa; color: #4b5563; }
+
 @media (max-width: 560px) {
   .card { padding: 22px 18px 18px; border-radius: 20px; }
   .comp-grid { grid-template-columns: 1fr; }

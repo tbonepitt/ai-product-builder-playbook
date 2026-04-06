@@ -38,11 +38,11 @@ export const MODULES = [
       ]
     },
     { type: "concept", icon: "🔍", tag: "The real leverage", head: "Follow the output, not the input", body: "Most PMs look at where the pain is. The better move is to follow the output downstream.\n\n<b>Example:</b> Your sales reps hate writing CRM notes after calls. You could build AI to auto-write the notes. But if you follow the output — who reads those notes? When? What decisions get made from them? — you might find that managers never read CRM notes at all.\n\n<b>If nobody uses the output, automating its creation solves nothing.</b>\n\nThe leverage is always in the step where the output actually matters downstream. Find that first." },
-    { type: "build", icon: "🏗️", tag: "Build It", head: "Map a real workflow before you build anything", body: "Use a product you know — from your current job, a side project, or any tool you use regularly.",
+    { type: "build", icon: "🏗️", tag: "Build It", head: "Map a real workflow before you build anything", body: "Use a product you know — from your current job, a side project, or any tool you use regularly.", interactive: "workflow-mapper",
       steps: [
         "Write the workflow in 5–8 steps. Not the happy path — the actual steps including the annoying ones.",
         "For each step: mark it 'AI-possible' if it involves looking something up, matching a pattern, drafting text, or classifying input.",
-        "Follow the output of step 3 or 4. Where does it go? Who uses it? What happens when it's wrong?",
+        "Follow the output of your highest-leverage AI-possible step. Where does it go? Who uses it? What happens when it's wrong?",
         "Write one sentence: 'The real leverage is [step X] because [what happens downstream if it's right/wrong].' That's your AI product concept."
       ]
     },
