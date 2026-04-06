@@ -214,6 +214,12 @@ body {
 .wm-reset-btn:hover { border-color: #a78bfa; color: #4b5563; }
 .wm-own-cta { width: 100%; background: none; border: 1.5px dashed; font-size: 13px; font-weight: 700; padding: 11px; border-radius: 11px; cursor: pointer; transition: all 0.18s; opacity: 0.75; }
 .wm-own-cta:hover { opacity: 1; background: #fafaf9; }
+.wm-analyzing { text-align: center; padding: 20px 0 8px; }
+.wm-analyzing-icon { font-size: 28px; margin-bottom: 8px; animation: pulse 1.8s ease-in-out infinite; }
+.wm-analyzing-text { font-size: 13px; font-weight: 600; color: #4b5563; margin-bottom: 14px; min-height: 20px; }
+.wm-analyzing-bar { height: 4px; background: #f0ede8; border-radius: 100px; overflow: hidden; }
+.wm-analyzing-fill { height: 100%; width: 40%; border-radius: 100px; animation: wm-slide 1.8s ease-in-out infinite; }
+@keyframes wm-slide { 0% { margin-left: -40%; } 100% { margin-left: 100%; } }
 
 @media (max-width: 560px) {
   .card { padding: 22px 18px 18px; border-radius: 20px; }

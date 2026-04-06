@@ -1,4 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+const ANALYSIS_STEPS = [
+  { icon: '📋', text: 'Reading workflow steps…' },
+  { icon: '🔍', text: 'Mapping Input, Reasoning, Output, Action…' },
+  { icon: '⚡', text: 'Identifying AI-possible steps…' },
+  { icon: '🔁', text: 'Following the output downstream…' },
+  { icon: '🎯', text: 'Finding the leverage point…' },
+]
+
+function AnalyzingIndicator({ color }) {
+  const [step, setStep] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => setStep(s => (s + 1) % ANALYSIS_STEPS.length), 1800)
+    return () => clearInterval(id)
+  }, [])
+
+  return (
+    <div className="wm-analyzing">
+      <div className="wm-analyzing-icon">{ANALYSIS_STEPS[step].icon}</div>
+      <div className="wm-analyzing-text">{ANALYSIS_STEPS[step].text}</div>
+      <div className="wm-analyzing-bar">
+        <div className="wm-analyzing-fill" style={{ background: `linear-gradient(90deg, ${color}, #38bdf8)` }} />
+      </div>
+    </div>
+  )
+}
 
 const ANATOMY_COLORS = {
   Input: '#0284c7',
@@ -111,14 +138,17 @@ export default function WorkflowMapper({ color, colorLight }) {
         ))}
       </div>
       {error && <div className="wm-error">{error}</div>}
-      <button
-        className="wm-submit-btn"
-        onClick={submitGuided}
-        disabled={!allMarked || loading}
-        style={{ background: allMarked && !loading ? `linear-gradient(135deg, ${color}, ${colorLight})` : '#9ca3af' }}
-      >
-        {loading ? 'Analyzing…' : !allMarked ? `Mark all steps first (${Object.keys(userMarks).length}/${EXAMPLE_STEPS.length})` : 'See the analysis →'}
-      </button>
+      {loading
+        ? <AnalyzingIndicator color={color} />
+        : <button
+            className="wm-submit-btn"
+            onClick={submitGuided}
+            disabled={!allMarked}
+            style={{ background: allMarked ? `linear-gradient(135deg, ${color}, ${colorLight})` : '#9ca3af' }}
+          >
+            {!allMarked ? `Mark all steps first (${Object.keys(userMarks).length}/${EXAMPLE_STEPS.length})` : 'See the analysis →'}
+          </button>
+      }
     </div>
   )
 
@@ -179,14 +209,17 @@ export default function WorkflowMapper({ color, colorLight }) {
               autoFocus
             />
             {ownError && <div className="wm-error">{ownError}</div>}
-            <button
-              className="wm-submit-btn"
-              onClick={submitOwn}
-              disabled={ownLoading || ownLineCount < 2}
-              style={{ background: ownLineCount >= 2 && !ownLoading ? `linear-gradient(135deg, ${color}, ${colorLight})` : '#9ca3af' }}
-            >
-              {ownLoading ? 'Analyzing…' : ownLineCount < 2 ? 'Add at least 2 steps' : 'Map this workflow →'}
-            </button>
+            {ownLoading
+              ? <AnalyzingIndicator color={color} />
+              : <button
+                  className="wm-submit-btn"
+                  onClick={submitOwn}
+                  disabled={ownLineCount < 2}
+                  style={{ background: ownLineCount >= 2 ? `linear-gradient(135deg, ${color}, ${colorLight})` : '#9ca3af' }}
+                >
+                  {ownLineCount < 2 ? 'Add at least 2 steps' : 'Map this workflow →'}
+                </button>
+            }
           </>
         ) : (
           <>
