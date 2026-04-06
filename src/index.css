@@ -171,12 +171,24 @@ body {
 .btn-primary:hover { transform: scale(1.02); }
 
 /* WorkflowMapper */
-.wm-steps-guide { margin-top: 14px; }
-.wm-guide-step { font-size: 13px; color: #14532d; padding: 5px 0 5px 22px; position: relative; line-height: 1.55; border-bottom: 1px solid rgba(187,247,208,0.5); }
-.wm-guide-step:last-child { border-bottom: none; }
-.wm-guide-step::before { content: attr(data-n); position: absolute; left: 0; font-weight: 800; color: #16a34a; }
-.wm-divider { height: 1px; background: #e8e3da; margin: 16px 0; }
-.wm-try-label { font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #6b7280; margin-bottom: 8px; }
+.wm-divider { height: 1px; background: #e8e3da; margin: 18px 0; }
+.wm-try-label { font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #6b7280; margin-bottom: 4px; }
+.wm-guided-sub { font-size: 12px; color: #9ca3af; margin-bottom: 12px; }
+.wm-guided-steps { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
+.wm-guided-step { background: #f9f8f6; border: 1.5px solid #e8e3da; border-radius: 11px; padding: 10px 12px; }
+.wm-guided-step-text { font-size: 13px; color: #1a1a2e; font-weight: 500; line-height: 1.4; margin-bottom: 8px; }
+.wm-guided-btns { display: flex; gap: 7px; }
+.wm-mark-btn { font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 100px; border: 1.5px solid; cursor: pointer; transition: all 0.15s; background: #fff; }
+.wm-ai-btn { border-color: #bae6fd; color: #0369a1; }
+.wm-ai-btn.selected { background: #0284c7; border-color: #0284c7; color: #fff; }
+.wm-no-btn { border-color: #e8e3da; color: #6b7280; }
+.wm-no-btn.selected { background: #374151; border-color: #374151; color: #fff; }
+.wm-score { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 2px solid; border-radius: 12px; margin-bottom: 14px; background: #fafaf9; }
+.wm-score-num { font-size: 26px; font-weight: 900; line-height: 1; }
+.wm-score-label { font-size: 13px; color: #6b7280; font-weight: 500; }
+.wm-check { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 100px; margin-left: auto; white-space: nowrap; }
+.wm-check.right { background: #f0fdf4; color: #16a34a; }
+.wm-check.wrong { background: #fef2f2; color: #b91c1c; }
 .wm-textarea { width: 100%; border: 1.5px solid #e5e1da; border-radius: 12px; padding: 12px 14px; font-size: 13px; font-family: inherit; color: #1a1a2e; background: #fafaf9; resize: vertical; outline: none; line-height: 1.6; box-sizing: border-box; }
 .wm-textarea:focus { border-color: #a78bfa; }
 .wm-error { font-size: 12px; color: #b91c1c; margin-top: 6px; }
