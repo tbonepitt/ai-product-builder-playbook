@@ -1,4 +1,4 @@
-const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions'
+const OLLAMA_URL = 'https://ollama.com/api/chat'
 
 const SYSTEM = `You are a workflow analysis assistant for an AI product management course.
 
@@ -40,17 +40,16 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch(GROQ_URL, {
+    const response = await fetch(OLLAMA_URL, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+        'Authorization': `Bearer ${process.env.OLLAMA_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
-        response_format: { type: 'json_object' },
-        temperature: 0.3,
-        max_tokens: 1024,
+        model: 'qwen3.5:7b',
+        format: 'json',
+        stream: false,
         messages: [
           { role: 'system', content: SYSTEM },
           { role: 'user', content: `Analyze this workflow:\n\n${workflow.trim()}` }
@@ -60,12 +59,12 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const err = await response.text()
-      console.error('Groq error:', err)
-      throw new Error(`Groq API returned ${response.status}`)
+      console.error('Ollama Cloud error:', err)
+      throw new Error(`Ollama API returned ${response.status}`)
     }
 
-    const groqData = await response.json()
-    const data = JSON.parse(groqData.choices[0].message.content)
+    const ollamaData = await response.json()
+    const data = JSON.parse(ollamaData.message.content)
     return res.status(200).json(data)
   } catch (e) {
     console.error('Workflow analysis error:', e)
