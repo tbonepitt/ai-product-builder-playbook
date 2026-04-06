@@ -46,13 +46,15 @@ export default function Lesson({ mod, onBack, onFinish }) {
         <div className="nav-count">{idx + 1} / {mod.cards.length}</div>
       </div>
       <div className="card-wrap" key={`${mod.id}-${idx}`}>
-        <CardView card={card} color={mod.color} colorLight={mod.colorLight} onQuizAnswered={() => setQuizDone(true)} />
-      </div>
-      <div className="cta-wrap">
-        <button className="cta-btn" onClick={next} disabled={!canGo}
-          style={{ background: canGo ? `linear-gradient(135deg, ${mod.color}, ${mod.colorLight})` : "#9ca3af" }}>
-          {!canGo ? "Select an answer" : isLast ? "🎉 Complete module" : "Continue →"}
-        </button>
+        <div className="card-and-cta">
+          <CardView card={card} color={mod.color} colorLight={mod.colorLight} onQuizAnswered={() => setQuizDone(true)} />
+          <div className="cta-wrap">
+            <button className="cta-btn" onClick={next} disabled={!canGo}
+              style={{ background: canGo ? `linear-gradient(135deg, ${mod.color}, ${mod.colorLight})` : "#9ca3af" }}>
+              {!canGo ? "Select an answer" : isLast ? "🎉 Complete module" : "Continue →"}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   )
