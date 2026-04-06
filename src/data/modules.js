@@ -76,7 +76,7 @@ export const MODULES = [
       ]
     },
     { type: "concept", icon: "🔌", tag: "Infrastructure shift", head: "MCP: the standard that changed AI tool connectivity", body: "In 2024, Anthropic released the Model Context Protocol — an open standard for connecting AI to external tools and data. By 2026, every major AI provider adopted it.\n\n<b>Before MCP:</b> Every AI integration was custom-built. Each tool required its own code.\n<b>After MCP:</b> Build one MCP server, any AI client connects to it. It's USB-C for AI.\n\n<b>Why it changes your design surface:</b> The question is no longer 'can we connect to X?' (almost always yes now). It's:\n• Which tools should this AI have access to?\n• What permissions within each tool — read vs. write, all records vs. just the user's own?\n• What's the blast radius if the AI misbehaves?\n\nMCP made AI more capable. Your job is to scope permissions tightly enough to make it safe." },
-    { type: "build", icon: "🏗️", tag: "Build It", head: "Write your first AI spec", body: "Use the workflow you mapped in Module 1. Pick one step where AI helps.",
+    { type: "build", icon: "🏗️", tag: "Build It", head: "Write your first AI spec", body: "Use the workflow you mapped in Module 1. Pick one step where AI helps.", interactive: "ai-spec-builder",
       steps: [
         "Context: What 3–5 specific inputs does the AI receive? Name them exactly.",
         "Instruction: Write exactly what the AI should produce. Be specific about scope and constraints.",

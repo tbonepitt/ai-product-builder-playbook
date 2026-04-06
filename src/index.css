@@ -225,6 +225,26 @@ body {
 .wm-own-remove:hover { color: #b91c1c; }
 .wm-add-step { background: none; border: 1.5px dashed #e5e1da; color: #9ca3af; font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 100px; cursor: pointer; transition: all 0.15s; margin-top: 2px; }
 .wm-add-step:hover { border-color: #a78bfa; color: #6b7280; }
+
+/* AiSpecBuilder */
+.spec-builder { margin-top: 14px; }
+.spec-m1-banner { font-size: 12px; font-weight: 600; padding: 8px 12px; border: 1.5px solid; border-radius: 10px; margin-bottom: 12px; background: #f9f8f6; }
+.spec-fields { display: flex; flex-direction: column; gap: 10px; }
+.spec-field { display: flex; flex-direction: column; gap: 4px; }
+.spec-label { font-size: 11px; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; color: #6b7280; }
+.spec-textarea { border: 1.5px solid #e5e1da; border-radius: 11px; padding: 10px 12px; font-size: 13px; font-family: inherit; color: #1a1a2e; background: #fafaf9; resize: vertical; outline: none; line-height: 1.55; }
+.spec-textarea:focus { border-color: #a78bfa; }
+.spec-textarea::placeholder { color: #c4b5b0; font-size: 12px; }
+.spec-result { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+.spec-overall { padding: 12px 14px; border: 2px solid; border-radius: 12px; background: #fafaf9; }
+.spec-section-label { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+.spec-overall-text { font-size: 14px; font-weight: 600; color: #1a1a2e; line-height: 1.5; }
+.spec-field-result { padding: 10px 12px; border: 1.5px solid; border-radius: 11px; }
+.spec-field-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.spec-field-name { font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #6b7280; }
+.spec-rating { font-size: 11px; font-weight: 800; }
+.spec-field-value { font-size: 12px; color: #374151; line-height: 1.45; margin-bottom: 6px; border-left: 2px solid #e8e3da; padding-left: 8px; }
+.spec-field-feedback { font-size: 12px; font-weight: 600; line-height: 1.45; }
 .wm-analyzing { text-align: center; padding: 20px 0 8px; }
 .wm-analyzing-icon { font-size: 28px; margin-bottom: 8px; animation: pulse 1.8s ease-in-out infinite; }
 .wm-analyzing-text { font-size: 13px; font-weight: 600; color: #4b5563; margin-bottom: 14px; min-height: 20px; }

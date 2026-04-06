@@ -1,6 +1,7 @@
 import React from 'react'
 import QuizCard from './QuizCard'
 import WorkflowMapper from './WorkflowMapper'
+import AiSpecBuilder from './AiSpecBuilder'
 
 export default function CardView({ card, color, colorLight, onQuizAnswered }) {
   const stripe = <div className="card-stripe" style={{ background: `linear-gradient(90deg, ${color}, ${colorLight})` }} />
@@ -97,6 +98,15 @@ export default function CardView({ card, color, colorLight, onQuizAnswered }) {
         <div className="interview-label">Interview line</div>
         <div className="interview-line">{card.iline}</div>
       </div>
+    </div>
+  )
+  if (card.type === "build" && card.interactive === "ai-spec-builder") return (
+    <div className="card">{stripe}
+      <div className="c-icon">{card.icon}</div>
+      {card.tag && <div className="c-tag">{card.tag}</div>}
+      <div className="c-head">{card.head}</div>
+      <div className="c-body">{card.body}</div>
+      <AiSpecBuilder color={color} colorLight={colorLight} />
     </div>
   )
   if (card.type === "build" && card.interactive === "workflow-mapper") return (

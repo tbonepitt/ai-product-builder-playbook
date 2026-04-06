@@ -1,4 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import AnalyzingIndicator from './AnalyzingIndicator'
+
+const WF_STEPS = [
+  { icon: '📋', text: 'Reading workflow steps…' },
+  { icon: '🔍', text: 'Mapping Input, Reasoning, Output, Action…' },
+  { icon: '⚡', text: 'Identifying AI-possible steps…' },
+  { icon: '🔁', text: 'Following the output downstream…' },
+  { icon: '🎯', text: 'Finding the leverage point…' },
+]
 
 const ANATOMY_COLORS = {
   Input: '#0284c7',
@@ -30,30 +39,6 @@ const CANNED_RESULT = {
   leverageSentence: "The real leverage is the knowledge base search (step 3) because if the rep finds the right answer fast, the reply is accurate and the ticket closes — if they can't, every downstream step degrades and the customer waits."
 }
 
-const ANALYSIS_STEPS = [
-  { icon: '📋', text: 'Reading workflow steps…' },
-  { icon: '🔍', text: 'Mapping Input, Reasoning, Output, Action…' },
-  { icon: '⚡', text: 'Identifying AI-possible steps…' },
-  { icon: '🔁', text: 'Following the output downstream…' },
-  { icon: '🎯', text: 'Finding the leverage point…' },
-]
-
-function AnalyzingIndicator({ color }) {
-  const [step, setStep] = useState(0)
-  useEffect(() => {
-    const id = setInterval(() => setStep(s => (s + 1) % ANALYSIS_STEPS.length), 1800)
-    return () => clearInterval(id)
-  }, [])
-  return (
-    <div className="wm-analyzing">
-      <div className="wm-analyzing-icon">{ANALYSIS_STEPS[step].icon}</div>
-      <div className="wm-analyzing-text">{ANALYSIS_STEPS[step].text}</div>
-      <div className="wm-analyzing-bar">
-        <div className="wm-analyzing-fill" style={{ background: `linear-gradient(90deg, ${color}, #38bdf8)` }} />
-      </div>
-    </div>
-  )
-}
 
 export default function WorkflowMapper({ color, colorLight }) {
   const [phase, setPhase] = useState('guided')
@@ -95,6 +80,13 @@ export default function WorkflowMapper({ color, colorLight }) {
       const data = await res.json()
       if (data.error) throw new Error(data.error)
       setOwnResult(data)
+      try {
+        localStorage.setItem('aipb-m1-workflow', JSON.stringify({
+          leverageSentence: data.leverageSentence,
+          aiSteps: data.steps.filter(s => s.aiPossible).map(s => s.text),
+          allSteps: data.steps.map(s => s.text)
+        }))
+      } catch (_) {}
     } catch (e) {
       setOwnError('Something went wrong. Try again.')
     } finally {
@@ -215,7 +207,7 @@ export default function WorkflowMapper({ color, colorLight }) {
             )}
             {ownError && <div className="wm-error">{ownError}</div>}
             {ownLoading
-              ? <AnalyzingIndicator color={color} />
+              ? <AnalyzingIndicator color={color} steps={WF_STEPS} />
               : <button
                   className="wm-submit-btn"
                   onClick={submitOwn}
