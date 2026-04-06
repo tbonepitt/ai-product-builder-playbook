@@ -41,7 +41,7 @@ export default function Lesson({ mod, onBack, onFinish }) {
         <div className="topbar-fill" style={{ width: `${pct}%`, background: `linear-gradient(90deg, ${mod.color}, ${mod.colorLight})` }} />
       </div>
       <div className="lesson-nav">
-        <button className="back-btn" onClick={back}>← Back</button>
+        <button className="back-btn" onClick={onBack}>← Home</button>
         <div className="nav-dots">
           {mod.cards.map((_, i) => (
             <div key={i} className={`ndot ${i < idx ? "past" : ""} ${i === idx ? "active" : ""}`}
@@ -54,6 +54,9 @@ export default function Lesson({ mod, onBack, onFinish }) {
         <div className="card-and-cta">
           <CardView card={card} color={mod.color} colorLight={mod.colorLight} onQuizAnswered={() => setQuizDone(true)} />
           <div className="cta-wrap">
+            {idx > 0 && (
+              <button className="cta-back-btn" onClick={back}>← Back</button>
+            )}
             <button className="cta-btn" onClick={next} disabled={!canGo}
               style={{ background: canGo ? `linear-gradient(135deg, ${mod.color}, ${mod.colorLight})` : "#9ca3af" }}>
               {!canGo ? "Select an answer" : isLast ? "🎉 Complete module" : "Continue →"}
