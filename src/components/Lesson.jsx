@@ -15,6 +15,11 @@ export default function Lesson({ mod, onBack, onFinish }) {
     setIdx(i => i + 1); setQuizDone(false)
   }
 
+  const back = () => {
+    if (idx === 0) { onBack(); return }
+    setIdx(i => i - 1); setQuizDone(false)
+  }
+
   if (complete) return (
     <div className="done-screen">
       <div className="done-icon">{mod.icon}</div>
@@ -36,7 +41,7 @@ export default function Lesson({ mod, onBack, onFinish }) {
         <div className="topbar-fill" style={{ width: `${pct}%`, background: `linear-gradient(90deg, ${mod.color}, ${mod.colorLight})` }} />
       </div>
       <div className="lesson-nav">
-        <button className="back-btn" onClick={onBack}>← Back</button>
+        <button className="back-btn" onClick={back}>← Back</button>
         <div className="nav-dots">
           {mod.cards.map((_, i) => (
             <div key={i} className={`ndot ${i < idx ? "past" : ""} ${i === idx ? "active" : ""}`}
