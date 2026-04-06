@@ -212,6 +212,8 @@ body {
 .wm-leverage-text { font-size: 14px; font-weight: 700; color: #1a1a2e; line-height: 1.5; margin-top: 4px; }
 .wm-reset-btn { background: none; border: 1.5px solid #e5e1da; color: #6b7280; font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 100px; cursor: pointer; transition: all 0.15s; }
 .wm-reset-btn:hover { border-color: #a78bfa; color: #4b5563; }
+.wm-own-cta { width: 100%; background: none; border: 1.5px dashed; font-size: 13px; font-weight: 700; padding: 11px; border-radius: 11px; cursor: pointer; transition: all 0.18s; opacity: 0.75; }
+.wm-own-cta:hover { opacity: 1; background: #fafaf9; }
 
 @media (max-width: 560px) {
   .card { padding: 22px 18px 18px; border-radius: 20px; }

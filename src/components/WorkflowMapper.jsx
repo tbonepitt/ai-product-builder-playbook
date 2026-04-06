@@ -26,6 +26,7 @@ export default function WorkflowMapper({ color, colorLight }) {
   const [ownResult, setOwnResult] = useState(null)
   const [ownLoading, setOwnLoading] = useState(false)
   const [ownError, setOwnError] = useState(null)
+  const [ownOpen, setOwnOpen] = useState(false)
 
   const allMarked = EXAMPLE_STEPS.every((_, i) => userMarks[i] !== undefined)
   const ownLineCount = ownWorkflow.split('\n').filter(l => l.trim()).length
@@ -161,9 +162,13 @@ export default function WorkflowMapper({ color, colorLight }) {
 
         <div className="wm-divider" />
 
-        {!ownResult ? (
+        {!ownOpen ? (
+          <button className="wm-own-cta" onClick={() => setOwnOpen(true)} style={{ borderColor: color, color }}>
+            + Map your own workflow
+          </button>
+        ) : !ownResult ? (
           <>
-            <div className="wm-try-label">Now map your own workflow</div>
+            <div className="wm-try-label">Your workflow</div>
             <div className="wm-guided-sub">Use something from your current job or a product you know well.</div>
             <textarea
               className="wm-textarea"
@@ -171,6 +176,7 @@ export default function WorkflowMapper({ color, colorLight }) {
               value={ownWorkflow}
               onChange={e => setOwnWorkflow(e.target.value)}
               rows={6}
+              autoFocus
             />
             {ownError && <div className="wm-error">{ownError}</div>}
             <button
