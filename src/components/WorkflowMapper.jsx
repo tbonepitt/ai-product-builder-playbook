@@ -194,7 +194,7 @@ export default function WorkflowMapper({ color, colorLight }) {
                       checked={step.aiPossible}
                       onChange={e => updateStep(i, 'aiPossible', e.target.checked)}
                     />
-                    <span>⚡ AI</span>
+                    <span>⚡ AI-possible</span>
                   </label>
                   {ownSteps.length > 2 && (
                     <button className="wm-own-remove" onClick={() => removeStep(i)}>×</button>

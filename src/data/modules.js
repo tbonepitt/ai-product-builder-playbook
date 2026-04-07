@@ -38,7 +38,7 @@ export const MODULES = [
       ]
     },
     { type: "concept", icon: "🔍", tag: "The real leverage", head: "Follow the output, not the input", body: "Most PMs look at where the pain is. The better move is to follow the output downstream.\n\n<b>Example:</b> Your sales reps hate writing CRM notes after calls. You could build AI to auto-write the notes. But if you follow the output — who reads those notes? When? What decisions get made from them? — you might find that managers never read CRM notes at all.\n\n<b>If nobody uses the output, automating its creation solves nothing.</b>\n\nThe leverage is always in the step where the output actually matters downstream. Find that first." },
-    { type: "build", icon: "🏗️", tag: "Build It", head: "Map a real workflow before you build anything", body: "Use a product you know — from your current job, a side project, or any tool you use regularly.", interactive: "workflow-mapper",
+    { type: "build", icon: "🏗️", tag: "Build It", head: "Map a real workflow before you build anything", body: "", interactive: "workflow-mapper",
       steps: [
         "Write the workflow in 5–8 steps. Not the happy path — the actual steps including the annoying ones.",
         "For each step: mark it 'AI-possible' if it involves looking something up, matching a pattern, drafting text, or classifying input.",
@@ -76,7 +76,7 @@ export const MODULES = [
       ]
     },
     { type: "concept", icon: "🔌", tag: "Infrastructure shift", head: "MCP: the standard that changed AI tool connectivity", body: "In 2024, Anthropic released the Model Context Protocol — an open standard for connecting AI to external tools and data. By 2026, every major AI provider adopted it.\n\n<b>Before MCP:</b> Every AI integration was custom-built. Each tool required its own code.\n<b>After MCP:</b> Build one MCP server, any AI client connects to it. It's USB-C for AI.\n\n<b>Why it changes your design surface:</b> The question is no longer 'can we connect to X?' (almost always yes now). It's:\n• Which tools should this AI have access to?\n• What permissions within each tool — read vs. write, all records vs. just the user's own?\n• What's the blast radius if the AI misbehaves?\n\nMCP made AI more capable. Your job is to scope permissions tightly enough to make it safe." },
-    { type: "build", icon: "🏗️", tag: "Build It", head: "Write your first AI spec", body: "Use the workflow you mapped in Module 1. Pick one step where AI helps.", interactive: "ai-spec-builder",
+    { type: "build", icon: "🏗️", tag: "Build It", head: "Write your first AI spec", body: "", interactive: "ai-spec-builder",
       steps: [
         "Context: What 3–5 specific inputs does the AI receive? Name them exactly.",
         "Instruction: Write exactly what the AI should produce. Be specific about scope and constraints.",

@@ -140,7 +140,7 @@ export default function CardView({ card, color, colorLight, onQuizAnswered }) {
       <div className="c-icon">{card.icon}</div>
       {card.tag && <div className="c-tag">{card.tag}</div>}
       <div className="c-head">{card.head}</div>
-      <div className="c-body">{card.body}</div>
+      {card.body && <div className="c-body">{card.body}</div>}
       <AiSpecBuilder color={color} colorLight={colorLight} />
     </div>
   )
@@ -149,7 +149,7 @@ export default function CardView({ card, color, colorLight, onQuizAnswered }) {
       <div className="c-icon">{card.icon}</div>
       {card.tag && <div className="c-tag">{card.tag}</div>}
       <div className="c-head">{card.head}</div>
-      <div className="c-body">{card.body}</div>
+      {card.body && <div className="c-body">{card.body}</div>}
       <WorkflowMapper color={color} colorLight={colorLight} />
     </div>
   )
