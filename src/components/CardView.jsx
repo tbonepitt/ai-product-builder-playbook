@@ -1,7 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react'
 import QuizCard from './QuizCard'
 import WorkflowMapper from './WorkflowMapper'
 import AiSpecBuilder from './AiSpecBuilder'
+import { GLOSSARY, processBody } from '../data/glossary'
+
+function ConceptCard({ card, color, colorLight, stripe }) {
+  const [activeTerm, setActiveTerm] = useState(null)
+
+  const handleClick = (e) => {
+    const termEl = e.target.closest('.gterm')
+    if (termEl) {
+      const term = termEl.dataset.term
+      setActiveTerm(activeTerm === term ? null : term)
+    } else {
+      setActiveTerm(null)
+    }
+  }
+
+  const def = activeTerm ? GLOSSARY[activeTerm] : null
+
+  return (
+    <div className="card">
+      {stripe}
+      <div className="c-icon">{card.icon}</div>
+      {card.tag && <div className="c-tag">{card.tag}</div>}
+      <div className="c-head">{card.head}</div>
+      <div
+        className="c-body"
+        onClick={handleClick}
+        dangerouslySetInnerHTML={{ __html: processBody(card.body) }}
+      />
+      {def && (
+        <div className="gterm-def" onClick={e => e.stopPropagation()}>
+          <div className="gterm-def-header">
+            <span className="gterm-def-term">{activeTerm}</span>
+            <button className="gterm-def-close" onClick={() => setActiveTerm(null)}>×</button>
+          </div>
+          <div className="gterm-def-text">{def}</div>
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function CardView({ card, color, colorLight, onQuizAnswered }) {
   const stripe = <div className="card-stripe" style={{ background: `linear-gradient(90deg, ${color}, ${colorLight})` }} />
@@ -20,12 +60,7 @@ export default function CardView({ card, color, colorLight, onQuizAnswered }) {
     </div>
   )
   if (card.type === "concept") return (
-    <div className="card">{stripe}
-      <div className="c-icon">{card.icon}</div>
-      {card.tag && <div className="c-tag">{card.tag}</div>}
-      <div className="c-head">{card.head}</div>
-      <div className="c-body" dangerouslySetInnerHTML={{ __html: card.body.replace(/\n/g, "<br/>") }} />
-    </div>
+    <ConceptCard card={card} color={color} colorLight={colorLight} stripe={stripe} />
   )
   if (card.type === "comparison") return (
     <div className="card">{stripe}
