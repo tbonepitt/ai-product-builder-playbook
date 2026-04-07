@@ -23,28 +23,6 @@ export default function Home({ completed, onSelect, onGlossary, onNowBuild }) {
           <div className="op-bar"><div className="op-fill" style={{ width: `${pct}%` }} /></div>
         </div>
       )}
-      <div className="value-props">
-        <div className="vp-card">
-          <div className="vp-icon">🔄</div>
-          <div className="vp-title">Start with workflows, not features</div>
-          <div className="vp-body">The best AI opportunities don't begin with "add a chatbot." They begin with broken work.</div>
-        </div>
-        <div className="vp-card">
-          <div className="vp-icon">🧪</div>
-          <div className="vp-title">A demo is not evidence</div>
-          <div className="vp-body">If it only works on curated examples, you don't have proof. You have a performance.</div>
-        </div>
-        <div className="vp-card">
-          <div className="vp-icon">💸</div>
-          <div className="vp-title">Every AI feature has a P&L</div>
-          <div className="vp-body">Latency, cost, and failure rate are product decisions — not backend details.</div>
-        </div>
-        <div className="vp-card">
-          <div className="vp-icon">💥</div>
-          <div className="vp-title">Autonomy expands blast radius</div>
-          <div className="vp-body">When AI starts acting instead of responding, every design choice becomes a trust decision.</div>
-        </div>
-      </div>
       <div className="section-label">Modules</div>
       <div className="mod-grid">
         {MODULES.map((mod, i) => {
