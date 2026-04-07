@@ -1,7 +1,7 @@
 export const MODULES = [
 {
   id: 0, icon: "⚡", name: "The Pivot",
-  tagline: "Why being a good PM is no longer enough",
+  tagline: "Why good PMs still lose in AI",
   color: "#7c3aed", colorLight: "#a78bfa", duration: "3 min",
   cards: [
     { type: "hook", icon: "📉", big: "Your skills", rest: "have an expiration date.", note: "In 2020, strong stakeholder management and sharp PRDs got you hired. In 2026, companies are restructuring entire PM functions around people who can build with AI directly. The bar moved. Most PMs haven't." },
@@ -24,7 +24,7 @@ export const MODULES = [
 },
 {
   id: 1, icon: "🔄", name: "Workflow Thinking",
-  tagline: "The feature that adds AI vs. the workflow that replaces work",
+  tagline: "Start with the workflow, not the feature",
   color: "#0284c7", colorLight: "#38bdf8", duration: "4 min",
   cards: [
     { type: "hook", icon: "📉", big: "Adding AI", rest: "is not the same as automating work.", note: "A fintech PM added AI autocomplete to their expense description field. Adoption hit 80%. Then they measured actual time savings: zero. Users still corrected every suggestion. The feature felt like AI. It didn't change any work." },
@@ -59,7 +59,7 @@ export const MODULES = [
 },
 {
   id: 2, icon: "🧠", name: "AI System Design",
-  tagline: "Architect the right stack — and know when to stop",
+  tagline: "More AI architecture usually makes the product worse",
   color: "#0891b2", colorLight: "#22d3ee", duration: "7 min",
   cards: [
     { type: "hook", icon: "💸", big: "They built agents", rest: "when prompting would have worked.", note: "A team spent 3 months building a multi-agent RAG pipeline for their internal knowledge base. It cost $200K in engineering time. A competitor solved the same problem in 2 weeks with a single well-structured prompt and a markdown wiki. The architecture wasn't wrong. It was just too much." },
@@ -98,7 +98,7 @@ export const MODULES = [
 },
 {
   id: 3, icon: "⚡", name: "Rapid Prototyping",
-  tagline: "Build it before you describe it",
+  tagline: "Build it before you explain it",
   color: "#d97706", colorLight: "#fbbf24", duration: "4 min",
   cards: [
     { type: "hook", icon: "🕐", big: "6 weeks.", rest: "For a prototype they could have built in a day.", note: "A team spent 6 weeks building a custom RAG pipeline for their knowledge base. They tested it with real users. The core feedback: the search interface itself was confusing — not the AI quality. They had built the most complex part of the system before testing the most important assumption." },
@@ -133,7 +133,7 @@ export const MODULES = [
 },
 {
   id: 4, icon: "🎯", name: "Evaluation Systems",
-  tagline: "How you know it works — before and after you ship",
+  tagline: "A demo is not evidence",
   color: "#dc2626", colorLight: "#f87171", duration: "5 min",
   cards: [
     { type: "hook", icon: "📉", big: "The output looked great.", rest: "In production, it was a disaster.", note: "A team shipped AI that summarized insurance policy documents. Internal testing: excellent. Week 1 in production: users made coverage decisions based on summaries that omitted key exclusions. The AI wasn't hallucinating — it was summarizing. Nobody defined 'completeness' as a quality dimension before shipping." },
@@ -169,7 +169,7 @@ export const MODULES = [
 },
 {
   id: 5, icon: "💰", name: "Cost + Latency",
-  tagline: "Every AI feature is a P&L problem. Own the math.",
+  tagline: "Every AI feature has a P&L",
   color: "#7c3aed", colorLight: "#a78bfa", duration: "4 min",
   cards: [
     { type: "hook", icon: "📊", big: "$2M/year.", rest: "For a feature nobody budgeted for.", note: "A team shipped a real-time AI writing assistant. Users loved it. Usage grew. Six months later, finance flagged it: $180K/month and climbing. Nobody had run the math at scale. The PM thought 'it costs pennies per call' and never multiplied. Pennies at 10 million calls is $100,000." },
@@ -193,7 +193,7 @@ export const MODULES = [
 },
 {
   id: 6, icon: "🤖", name: "Agentic AI",
-  tagline: "When AI acts — not just responds",
+  tagline: "Autonomy expands blast radius",
   color: "#0f766e", colorLight: "#2dd4bf", duration: "8 min",
   cards: [
     { type: "hook", icon: "📧", big: "847 emails.", rest: "You didn't send any of them.", note: "A team gave their AI agent access to their email system to 'help with outreach.' The agent interpreted 'follow up with warm leads' as: send a personalized email to every contact marked warm in the CRM. 847 emails in 4 minutes. Some were to the wrong people. Three went to competitors. The agent worked exactly as designed. Nobody thought through what 'email access' meant at scale." },
@@ -224,7 +224,7 @@ export const MODULES = [
 },
 {
   id: 7, icon: "🏆", name: "End-to-End Ownership",
-  tagline: "From zero to shipped — and you own all of it",
+  tagline: "If you ship AI, you own the whole system",
   color: "#16a34a", colorLight: "#4ade80", duration: "4 min",
   cards: [
     { type: "hook", icon: "🛤️", big: "Nobody", rest: "is coming to hand you the keys.", note: "The engineers who got promoted to lead AI products didn't wait for a PM. They built something, validated it, shipped it, and called it a product. You can reverse this. But you have to start the loop yourself — with whatever you have, on personal devices, in free time." },
