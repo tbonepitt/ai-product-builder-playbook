@@ -1,6 +1,6 @@
 import { MODULES } from '../data/modules'
 
-export default function Home({ completed, onSelect, onGlossary }) {
+export default function Home({ completed, onSelect, onGlossary, onNowBuild }) {
   const total = MODULES.length
   const done = completed.size
   const pct = Math.round((done / total) * 100)
@@ -8,12 +8,12 @@ export default function Home({ completed, onSelect, onGlossary }) {
     <div className="home">
       <div className="home-hero">
         <h1 className="hero-title">The <span>AI Product</span><br />Builder Playbook</h1>
-        <p className="hero-sub">Seven skills. Eight modules. Learn to build, not just describe.</p>
+        <p className="hero-sub">Stop waiting to feel ready. Eight modules, then you go build something this week.</p>
         <div className="hero-pills">
+          <span className="pill">⚡ ~5 min per module</span>
           <span className="pill">📚 8 modules</span>
-          <span className="pill">⏱ ~40 min total</span>
+          <span className="pill">🔨 Build as you learn</span>
           <span className="pill">🎯 Self-paced</span>
-          <span className="pill">🔨 Hands-on exercises</span>
         </div>
       </div>
       {done > 0 && (
@@ -46,11 +46,12 @@ export default function Home({ completed, onSelect, onGlossary }) {
       </div>
       {done === total && (
         <div className="finish-banner">
-          <div style={{ fontSize: 48, marginBottom: 12 }}>🏆</div>
-          <div style={{ fontSize: 22, fontWeight: 900, marginBottom: 8 }}>All done. Now build something.</div>
-          <div style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6 }}>
-            You have the knowledge. You have the tools. The only thing left is to start the loop.<br />Pick the workflow. Build the prototype. This week.
-          </div>
+          <div className="finish-icon">🚀</div>
+          <div className="finish-title">Course complete. Now go build.</div>
+          <div className="finish-sub">You have the frameworks. You have the tools. The only thing left is the first move.</div>
+          <button className="finish-cta" onClick={onNowBuild}>
+            See your build plan →
+          </button>
         </div>
       )}
     </div>

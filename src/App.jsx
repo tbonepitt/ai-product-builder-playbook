@@ -3,6 +3,7 @@ import { MODULES } from './data/modules'
 import Home from './components/Home'
 import Lesson from './components/Lesson'
 import Glossary from './components/Glossary'
+import NowBuild from './components/NowBuild'
 
 export default function App() {
   const [screen, setScreen] = useState("home")
@@ -25,5 +26,11 @@ export default function App() {
   }
   if (screen === "lesson" && mod) return <Lesson mod={mod} onBack={goHome} onFinish={finish} />
   if (screen === "glossary") return <Glossary onBack={goHome} />
-  return <Home completed={completed} onSelect={id => { setActiveId(id); setScreen("lesson"); window.scrollTo(0, 0) }} onGlossary={() => { setScreen("glossary"); window.scrollTo(0, 0) }} />
+  if (screen === "nowbuild") return <NowBuild onBack={goHome} />
+  return <Home
+    completed={completed}
+    onSelect={id => { setActiveId(id); setScreen("lesson"); window.scrollTo(0, 0) }}
+    onGlossary={() => { setScreen("glossary"); window.scrollTo(0, 0) }}
+    onNowBuild={() => { setScreen("nowbuild"); window.scrollTo(0, 0) }}
+  />
 }
