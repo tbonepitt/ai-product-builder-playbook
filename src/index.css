@@ -88,8 +88,8 @@ body {
 .ndot.past { background: rgba(0,0,0,0.35); }
 .nav-count { font-size: 12px; color: #9ca3af; font-weight: 600; }
 
-.card-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 16px 20px; overflow-y: auto; }
-.card-and-cta { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 540px; }
+.card-wrap { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 16px 20px; overflow-y: auto; }
+.card-and-cta { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 540px; margin-top: auto; margin-bottom: auto; }
 .card {
   width: 100%; max-width: 540px; background: #fff; color: #111; border-radius: 24px;
   padding: 32px 32px 26px; position: relative; overflow: hidden;

@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 const TOOLS = [
   { name: 'Claude.ai', icon: '🤖', desc: 'Describe what you want built. Paste your spec. Get a working prototype, script, or tool in one prompt.', url: 'https://claude.ai', cta: 'Open Claude.ai' },
   { name: 'Lovable.dev', icon: '🎨', desc: 'Describe a UI in plain English, get working React code instantly. Front-end in under 15 minutes.', url: 'https://lovable.dev', cta: 'Open Lovable' },
@@ -36,8 +38,6 @@ function FirstPrompt({ leverage }) {
     </div>
   )
 }
-
-import { useState } from 'react'
 
 export default function NowBuild({ onBack }) {
   const { m1 } = loadArtifacts()
