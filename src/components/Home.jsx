@@ -1,6 +1,6 @@
 import { MODULES } from '../data/modules'
 
-export default function Home({ completed, onSelect, onGlossary, onNowBuild }) {
+export default function Home({ completed, onSelect, onNowBuild }) {
   const total = MODULES.length
   const done = completed.size
   const pct = Math.round((done / total) * 100)
@@ -41,9 +41,6 @@ export default function Home({ completed, onSelect, onGlossary, onNowBuild }) {
             </div>
           )
         })}
-      </div>
-      <div className="home-footer">
-        <button className="glossary-link" onClick={onGlossary}>📖 Glossary</button>
       </div>
       {done === total && (
         <div className="finish-banner">

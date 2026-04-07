@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import CardView from './CardView'
+import Glossary from './Glossary'
 
 export default function Lesson({ mod, onBack, onFinish }) {
   const [idx, setIdx] = useState(0)
   const [quizDone, setQuizDone] = useState(false)
   const [complete, setComplete] = useState(false)
+  const [showGlossary, setShowGlossary] = useState(false)
   const card = mod.cards[idx]
   const isLast = idx === mod.cards.length - 1
   const isQuiz = card.type === "quiz"
@@ -48,8 +50,9 @@ export default function Lesson({ mod, onBack, onFinish }) {
               style={i === idx ? { background: mod.color } : {}} />
           ))}
         </div>
-        <div className="nav-count">{idx + 1} / {mod.cards.length}</div>
+        <button className="glossary-nav-btn" onClick={() => setShowGlossary(true)}>📖</button>
       </div>
+      {showGlossary && <Glossary onBack={() => setShowGlossary(false)} inline />}
       <div className="card-wrap" key={`${mod.id}-${idx}`}>
         <div className="card-and-cta">
           <CardView card={card} color={mod.color} colorLight={mod.colorLight} onQuizAnswered={() => setQuizDone(true)} />
