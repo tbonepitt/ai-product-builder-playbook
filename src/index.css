@@ -170,6 +170,20 @@ body {
 .btn-primary { color: #fff; border: none; font-size: 14px; font-weight: 700; padding: 12px 28px; border-radius: 100px; cursor: pointer; transition: all 0.18s; box-shadow: 0 3px 12px rgba(0,0,0,0.15); }
 .btn-primary:hover { transform: scale(1.02); }
 
+/* Glossary page */
+.glossary-page { min-height: 100vh; background: #FAF7F2; padding: 0 0 48px; }
+.glossary-header { padding: 20px 20px 16px; max-width: 600px; margin: 0 auto; }
+.glossary-title { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #1a1a2e; margin: 12px 0 4px; }
+.glossary-sub { font-size: 14px; color: #9ca3af; margin: 0; }
+.glossary-list { max-width: 600px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; gap: 2px; }
+.glossary-entry { padding: 14px 0; border-bottom: 1px solid #f0ede8; }
+.glossary-entry:last-child { border-bottom: none; }
+.glossary-term { font-size: 14px; font-weight: 800; color: #7c3aed; margin-bottom: 4px; }
+.glossary-def { font-size: 13px; color: #374151; line-height: 1.65; }
+.home-footer { max-width: 600px; margin: 24px auto 0; padding: 0 20px; }
+.glossary-link { background: none; border: 1.5px solid #e8e3da; color: #6b7280; font-size: 13px; font-weight: 600; padding: 9px 18px; border-radius: 100px; cursor: pointer; transition: all 0.18s; }
+.glossary-link:hover { border-color: #a78bfa; color: #7c3aed; background: #faf5ff; }
+
 /* Glossary terms */
 .gterm { border-bottom: 1.5px dotted #a78bfa; cursor: pointer; position: relative; display: inline; }
 .gterm:hover { background: #f5f3ff; border-radius: 3px; }

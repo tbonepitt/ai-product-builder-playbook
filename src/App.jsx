@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { MODULES } from './data/modules'
 import Home from './components/Home'
 import Lesson from './components/Lesson'
+import Glossary from './components/Glossary'
 
 export default function App() {
   const [screen, setScreen] = useState("home")
@@ -23,5 +24,6 @@ export default function App() {
     goHome()
   }
   if (screen === "lesson" && mod) return <Lesson mod={mod} onBack={goHome} onFinish={finish} />
-  return <Home completed={completed} onSelect={id => { setActiveId(id); setScreen("lesson"); window.scrollTo(0, 0) }} />
+  if (screen === "glossary") return <Glossary onBack={goHome} />
+  return <Home completed={completed} onSelect={id => { setActiveId(id); setScreen("lesson"); window.scrollTo(0, 0) }} onGlossary={() => { setScreen("glossary"); window.scrollTo(0, 0) }} />
 }
